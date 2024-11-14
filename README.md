@@ -8,8 +8,10 @@
 
 ### OBJETIVOS GERAIS
 
-## 💻 PRÉ-REQUISITOS
+## 💻 Pré-Requisitos
 
-## 🚀 INSTALANDO O SISTEMA
+## 🚀 Instalando o Sistema
 
-## 🤝 COLABORADORES
+## 🤝 Colaboradores
+
+Agradecemos às seguintes pessoas que contribuiram para esse projeto:
