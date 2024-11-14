@@ -2,6 +2,10 @@
 ## Sistema de Gestão Clínica
 
 ![GitHub language count](https://img.shields.io/static/v1?label=TypeScript&message=framework&color=blue&style=for-the-badge&logo=typescript)
+![GitHub language count](https://img.shields.io/static/v1?label=CSS&message=framework&color=blue&style=for-the-badge&logo=css3)
+![GitHub language count](https://img.shields.io/static/v1?label=HTML&message=framework&color=blue&style=for-the-badge&logo=html5)
+![GitHub language count](https://img.shields.io/static/v1?label=JavaScript&message=framework&color=blue&style=for-the-badge&logo=javascript)
+![GitHub language count](https://img.shields.io/static/v1?label=SQLite&message=framework&color=blue&style=for-the-badge&logo=sqlite)
 ![Status](https://img.shields.io/static/v1?label=STATUS&message=EM%20ANDAMENTO&color=yellow&style=for-the-badge)
 
 > 
