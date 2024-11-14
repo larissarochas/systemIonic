@@ -1,0 +1,14 @@
+/* For information on how to create your own theme, please see:
+http://ionicframework.com/docs/theming/ */
+
+:root {
+    --custom-app-width: 600px
+}
+
+.container {
+    position: absolute;
+    max-width: var(--custom-app-width);
+    width: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+}

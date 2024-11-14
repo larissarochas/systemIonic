@@ -1,0 +1,7 @@
+{
+  "name": "Fasiclin",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}

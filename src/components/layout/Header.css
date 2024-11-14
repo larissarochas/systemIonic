@@ -1,0 +1,62 @@
+:root {
+    /* Geral */
+    --custom-header-small-height: 65px;
+    --custom-header-large-height: 90px;
+    --custom-header-border-radius: 24px;
+    --ion-toolbar-background: #4CAF50;
+
+    /* Header Largo */
+    --custom-header-large-font-size: 22pt;
+
+    /* Header Pequeno */
+    --custom-header-small-font-size: 18pt;
+}
+
+#header {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#header, #toolbar {
+    position: relative;
+    color: white;
+    display: flex;
+    overflow: hidden;
+    max-width: var(--custom-app-width);
+    border-bottom-left-radius: var(--custom-header-border-radius);
+    border-bottom-right-radius: var(--custom-header-border-radius);
+}
+
+#header-icon-container {
+    position: absolute;
+    height: 100%;
+}
+
+#header-icon {
+    height: 100%;
+    transform: translateX(-7px);
+}
+
+#header-icon:hover {
+    background-color: rgba(0, 0, 0, 0.336);
+}
+
+#header-title {
+    text-align: center;
+    user-select: none;
+    pointer-events: none;
+    font-size: var(--custom-header-large-font-size);
+}
+
+.large-header {
+    height: var(--custom-header-large-height);
+}
+
+.small-header {
+    height: var(--custom-header-small-height);
+}
+
+.small-header #header-title {
+    font-size: var(--custom-header-small-font-size);
+}
