@@ -1,15 +1,15 @@
 :root {
     /* Geral */
-    --custom-header-small-height: 65px;
-    --custom-header-large-height: 90px;
     --custom-header-border-radius: 24px;
     --ion-toolbar-background: #4CAF50;
-
+    
     /* Header Largo */
-    --custom-header-large-font-size: 22pt;
-
+    --custom-header-large-height: 150px;
+    --custom-header-large-font-size: 3rem;
+    
     /* Header Pequeno */
-    --custom-header-small-font-size: 18pt;
+    --custom-header-small-height: 80px;
+    --custom-header-small-font-size: 1.9rem;
 }
 
 #header {
@@ -31,6 +31,10 @@
 #header-icon-container {
     position: absolute;
     height: 100%;
+}
+
+#icon {
+    font-size: 2.4rem;
 }
 
 #header-icon {

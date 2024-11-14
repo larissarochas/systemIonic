@@ -15,12 +15,12 @@ const UserCard = ({name, proced, date}: Card) => {
                     <h2>{name}</h2>
                 </div>
                 <div className="card-content-bottom">
-                    <div className="card-content-bottom-top">
+                    <div className="card-content-bottom-left">
                         <p>Procedimento:</p>
-                        <p>Data:</p>
-                    </div>
-                    <div className="card-content-bottom-bottom">
                         <p>{proced}</p>
+                    </div>
+                    <div className="card-content-bottom-right">
+                        <p>Data:</p>
                         <p>{date}</p>
                     </div>
                 </div>

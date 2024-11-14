@@ -1,6 +1,6 @@
 :root {
     /* Card */
-    --card-height: 75px;
+    --card-height: 80px;
     --card-width: 97%;
     --card-border-width: 2px;
     --card-border-radius: 11px;
@@ -16,16 +16,16 @@
     --card-color-width: 30px;
 
     /* Card-Content */
-    --card-content-padding: 15px;
+    --card-content-padding: 7px 2px 7px 20px;
+    --card-content-gap: 3px;
 
     /* Card-Content-Top */
-    --card-content-top-flex: 0.49;
-    --card-content-top-font-size: 12pt;
+    --card-content-top-flex: 0.45;
+    --card-content-top-font-size: 1.2rem;
 
     /* Card-Content-Bottom */
-    --card-content-bottom-font-size: 10pt;
+    --card-content-bottom-font-size: 1rem;
     --card-content-bottom-color: green;
-    --card-content-bottom-padding: 1px;
 }
 
 .card {
@@ -41,7 +41,7 @@
     border-radius: var(--card-border-radius);
 }
 
-.card:hover, .card:active {
+.card:active {
     cursor: pointer;
     border: var(--hover-card-border);
     background-color: rgb(226, 226, 226);
@@ -55,7 +55,9 @@
 .card-content {
     display: flex;
     flex-direction: column;
-    padding-left: var(--card-content-padding);
+    justify-content: center;
+    gap: var(--card-content-gap);
+    padding: var(--card-content-padding);
     width: calc(100% - calc(var(--card-color-width)));
 }
 
@@ -71,8 +73,8 @@
 }
 
 .card-content-bottom {
+    display: flex;
     flex: calc(1 - var(--card-content-top-flex));
-    padding-top: var(--card-content-bottom-padding);
 }
 
 .card-content-bottom-top, 
@@ -81,27 +83,22 @@
     position: relative;
 }
 
-.card-content-bottom-top > p,
-.card-content-bottom-bottom > p {
+.card-content-bottom p {
     margin: 0;
     font-size: var(--card-content-bottom-font-size);
 }
 
-.card-content-bottom-top > p {
+.card-content-bottom-left > p,
+.card-content-bottom-right > p:nth-child(1) {
     font-weight: bold;
 }
 
-.card-content-bottom-top > p:nth-child(2) {
+.card-content-bottom-right {
     position: absolute;
-    right: 50px;
+    right: 2rem;
 }
 
-.card-content-bottom-bottom > p:nth-child(1) {
+.card-content-bottom-left > p:nth-child(2) {
     color: var(--card-content-bottom-color);
     font-weight: bold;
-}
-
-.card-content-bottom-bottom > p:nth-child(2) {
-    position: absolute;
-    right: 14px;
 }

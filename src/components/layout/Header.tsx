@@ -22,7 +22,7 @@ const Header = ({type="small-header", text, goBack}: Header) => {
                 {goBack && (
                     <IonButtons id="header-icon-container" slot="start">
                         <IonButton id="header-icon" onClick={returnPage}>
-                            <IonIcon icon={chevronBack} size="large"></IonIcon>
+                            <IonIcon id="icon" icon={chevronBack}></IonIcon>
                         </IonButton>
                     </IonButtons>
                 )}
