@@ -1,11 +1,7 @@
 # FasiClin 
 ## Sistema de Gestão Clínica
 
-![GitHub language count](https://img.shields.io/static/v1?label=TypeScript&message=framework&color=blue&style=for-the-badge&logo=typescript)
-![GitHub language count](https://img.shields.io/static/v1?label=CSS&message=framework&color=blue&style=for-the-badge&logo=css3)
-![GitHub language count](https://img.shields.io/static/v1?label=HTML&message=framework&color=blue&style=for-the-badge&logo=html5)
-![GitHub language count](https://img.shields.io/static/v1?label=JavaScript&message=framework&color=blue&style=for-the-badge&logo=javascript)
-![GitHub language count](https://img.shields.io/static/v1?label=SQLite&message=framework&color=blue&style=for-the-badge&logo=sqlite)
+![GitHub language count](https://img.shields.io/static/v1?label=Framework&message=TypeScript%2C%20CSS%2C%20HTML%2C%20JavaScript%2C%20SQLite&color=blue&style=for-the-badge)
 ![Status](https://img.shields.io/static/v1?label=STATUS&message=EM%20ANDAMENTO&color=yellow&style=for-the-badge)
 
 > 
