@@ -50,6 +50,7 @@
     text-align: center;
     user-select: none;
     pointer-events: none;
+    text-shadow: -2px 2px 3px rgb(95, 95, 95);
     font-size: var(--custom-header-large-font-size);
 }
 

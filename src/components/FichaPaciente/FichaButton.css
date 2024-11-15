@@ -5,6 +5,18 @@
     --ficha-button-font-weight: 500;
     --ficha-button-font-size: 1.2rem;
     --ficha-button-border-radius: 10px;
+
+    /* Aceitar */
+    --ficha-button-aceitar-color: rgb(47, 182, 47);
+
+    /* Aceitar-Actived */
+    --ficha-button-aceitar-actived-color: rgb(109, 199, 109);
+    
+    /* Recusar */
+    --ficha-button-recusar-color: rgb(250, 61, 61);
+
+    /* Recusar-Actived */
+    --ficha-button-recusar-actived-color: rgb(250, 114, 114);
 }
 
 .ficha-button {
@@ -17,12 +29,11 @@
 .ficha-button > p {
     margin: 0;
     font-weight: var(--ficha-button-font-weight);
+    text-shadow: -2px 2px 2px rgb(82, 82, 82);
 }
 
-.aceitar {
-    background-color: green;
-}
+.aceitar { background-color: var(--ficha-button-aceitar-color) }
+.aceitar:active { background-color: var(--ficha-button-aceitar-actived-color) }
 
-.recusar {
-    background-color: red;
-}
+.recusar { background-color: var(--ficha-button-recusar-color) }
+.recusar:active { background-color: var(--ficha-button-recusar-actived-color) }

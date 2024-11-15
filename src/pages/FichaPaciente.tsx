@@ -1,12 +1,29 @@
-import { IonPage } from "@ionic/react";
+import { IonAlert, IonPage } from "@ionic/react";
 import Header from "../components/layout/Header";
 import ContentContainer from "../components/layout/ContentContainer";
 import FichaCampo from "../components/FichaPaciente/FichaCampo";
 
 import "./FichaPaciente.css";
 import FichaButton from "../components/FichaPaciente/FichaButton";
+import { useState } from "react";
 
 const FichaPaciente = () => {
+    const [alert, setAlert] = useState(false);
+
+    const accept = () => {
+        // aceitar o paciente
+    }
+
+    const decline = (reason: {0: string}) => {
+        reason[0] = reason[0] !== "" ? reason[0] : "Nenhum motivo informado.";
+        console.log("Paciente recusado. Motivo: " + reason[0]);
+    }
+
+    const showAlert = () => {
+        // recusa o paciente
+        setAlert(true);
+    }
+
     return (
         <IonPage>
             <Header text="Ficha Paciente" goBack={true} />
@@ -39,9 +56,33 @@ const FichaPaciente = () => {
                     </div>
                 </div>
                 <div id="ficha-buttons">
-                    <FichaButton type="recusar" />
-                    <FichaButton type="aceitar" />
+                    <FichaButton type="recusar" handleClick={showAlert} />
+                    <FichaButton type="aceitar" handleClick={accept} />
                 </div>
+                <IonAlert
+                 header="Recusar"
+                 isOpen={alert}
+                 onDidDismiss={() => setAlert(false)}
+                 buttons={[
+                    {
+                        role: "cancel",
+                        text: "Cancelar",
+                        cssClass: "alert-button"
+                    },
+                    {
+                        role: "confirm",
+                        text: "Confirmar",
+                        cssClass: "alert-button",
+                        handler: (data) => decline(data)
+                    }
+                 ]}
+                 inputs={[
+                    {
+                        placeholder: "Motivo",
+                        
+                    }
+                 ]}
+                ></IonAlert>
             </ContentContainer>
         </IonPage>
     )

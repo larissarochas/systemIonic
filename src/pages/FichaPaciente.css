@@ -14,7 +14,7 @@
 
     /* Dados-Serviço-Header-Line */
     --dados-servico-header-line-height: 2px;
-    --dados-servico-header-line-color: black;
+    --dados-servico-header-line-color: rgb(182, 182, 182);
 
     /* Dados-Servico-Header-Box */
     --dados-servico-header-box-height: 35px;
@@ -90,4 +90,8 @@
     align-items: center;
     justify-content: space-around;
     height: var(--ficha-buttons-height);
+}
+
+.alert-button {
+    color: rgb(75, 75, 75) !important;
 }

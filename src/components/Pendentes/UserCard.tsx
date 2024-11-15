@@ -9,11 +9,14 @@ interface Card {
 
 const UserCard = ({name, proced, date}: Card) => {
     const router = useIonRouter();
-    const a = () => {
+
+    const switchPage = () => {
+        // incompleto por enquanto
         router.push("/ficha/2");
     }
+
     return (
-        <div className="card" onClick={a}>
+        <div className="card" onClick={switchPage}>
             <div className="card-color"></div>
             <div className="card-content">
                 <div className="card-content-top">
