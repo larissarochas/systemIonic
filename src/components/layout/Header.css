@@ -42,7 +42,7 @@
     transform: translateX(-7px);
 }
 
-#header-icon:hover {
+#header-icon:active {
     background-color: rgba(0, 0, 0, 0.336);
 }
 

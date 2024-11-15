@@ -2,7 +2,7 @@
 http://ionicframework.com/docs/theming/ */
 
 :root {
-    --custom-app-width: 600px
+    --custom-app-width: 600px;
 }
 
 .container {

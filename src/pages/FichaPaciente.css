@@ -1,0 +1,93 @@
+:root {
+    /* Ficha-Container */
+    --ficha-container-padding: 10px 15px;
+
+    /* Ficha-Telefone */
+    --ficha-telefone-gap: 20px;
+
+    /* Ficha-Telefone-DDD */
+    --ficha-telefone-ddd-flex: 0.25;
+
+    /* Dados-Serviço-Header */
+    --dados-servico-header-margin-top: 20px;
+    --dados-servico-header-margin-bottom: 10px;
+
+    /* Dados-Serviço-Header-Line */
+    --dados-servico-header-line-height: 2px;
+    --dados-servico-header-line-color: black;
+
+    /* Dados-Servico-Header-Box */
+    --dados-servico-header-box-height: 35px;
+    --dados-servico-header-box-padding: 0 20px;
+    --dados-servico-header-box-font-size: 1.3rem;
+    --dados-servico-header-box-border-radius: 10px;
+    --dados-servico-header-box-background-color: #4CAF50;
+
+    /* Ficha-Buttons */
+    --ficha-buttons-height: 90px;
+}
+
+.ficha-container {
+    padding: var(--ficha-container-padding);
+}
+
+#ficha-telefone {
+    display: flex;
+    gap: var(--ficha-telefone-gap);
+}
+
+#ficha-telefone :nth-child(1) {
+    flex: var(--ficha-telefone-ddd-flex);
+}
+
+#ficha-telefone :nth-child(2) {
+    flex: calc(1 - var(--ficha-telefone-ddd-flex));
+}
+
+#dados-servico-header {
+    height: var(--dados-servico-header-margin-bottom);
+    margin-top: var(--dados-servico-header-margin-top);
+}
+
+#dados-servico-header-line {
+    position: absolute;
+    width: 100%;
+    height: var(--dados-servico-header-line-height);
+    background-color: var(--dados-servico-header-line-color);
+}
+
+#dados-servico-header-box {
+    display: flex;
+    color: white;
+    margin: 0 auto;
+    width: fit-content;
+    align-items: center;
+    text-shadow: -1px 2px 2px rgb(82, 82, 82);
+    height: var(--dados-servico-header-box-height);
+    padding: var(--dados-servico-header-box-padding);
+    font-size: var(--dados-servico-header-box-font-size);
+    border-radius: var(--dados-servico-header-box-border-radius);
+    background-color: var(--dados-servico-header-box-background-color);
+    transform: translateY(calc(-50% + calc(var(--dados-servico-header-line-height) / 2)));
+}
+
+.dados-servico-divided-container {
+    display: flex;
+    position: relative;
+}
+
+.dados-servico-divided-container > :nth-child(1) {
+    flex: 0.45;
+}
+
+.dados-servico-divided-container > :nth-child(2) {
+    flex: 0.45;
+    margin-left: auto;
+}
+
+#ficha-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: var(--ficha-buttons-height);
+}

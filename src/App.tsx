@@ -33,6 +33,7 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import Pendentes from './pages/Pendentes';
+import FichaPaciente from './pages/FichaPaciente';
 
 setupIonicReact();
 
@@ -45,6 +46,9 @@ const App: React.FC = () => (
         </Route>
         <Route exact path="/pendentes">
           <Pendentes />
+        </Route>
+        <Route exact path="/ficha/:id">
+          <FichaPaciente />
         </Route>
         <Route exact path="/">
           <Redirect to="/home" />

@@ -1,0 +1,28 @@
+:root {
+    /* Ficha-Button */
+    --ficha-button-width: 9.5rem;
+    --ficha-button-padding: 1rem 0;
+    --ficha-button-font-weight: 500;
+    --ficha-button-font-size: 1.2rem;
+    --ficha-button-border-radius: 10px;
+}
+
+.ficha-button {
+    width: var(--ficha-button-width);
+    padding: var(--ficha-button-padding);
+    font-size: var(--ficha-button-font-size);
+    border-radius: var(--ficha-button-border-radius);
+}
+
+.ficha-button > p {
+    margin: 0;
+    font-weight: var(--ficha-button-font-weight);
+}
+
+.aceitar {
+    background-color: green;
+}
+
+.recusar {
+    background-color: red;
+}

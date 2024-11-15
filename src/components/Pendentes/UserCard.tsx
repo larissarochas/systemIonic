@@ -1,3 +1,4 @@
+import { useIonRouter } from "@ionic/react";
 import "./UserCard.css";
 
 interface Card {
@@ -7,8 +8,12 @@ interface Card {
 }
 
 const UserCard = ({name, proced, date}: Card) => {
+    const router = useIonRouter();
+    const a = () => {
+        router.push("/ficha/2");
+    }
     return (
-        <div className="card">
+        <div className="card" onClick={a}>
             <div className="card-color"></div>
             <div className="card-content">
                 <div className="card-content-top">
