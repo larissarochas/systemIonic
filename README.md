@@ -1,10 +1,13 @@
 # FasiClin 
 ## Sistema de Gestão Clínica
 
-![GitHub language count](https://img.shields.io/static/v1?label=Framework&message=TypeScript%20|%20CSS%20|%20HTML%20|%20JavaScript%20|%20SQLite&color=blue&style=for-the-badge&logo=typescript&logoColor=white&labelColor=gray)
-![Status](https://img.shields.io/static/v1?label=STATUS&message=EM%20ANDAMENTO&color=yellow&style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-EM%20ANDAMENTO-FFA500?style=for-the-badge&logo=clock&logoColor=white)
 
-
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
 
 > 
 
