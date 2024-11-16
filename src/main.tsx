@@ -15,4 +15,5 @@ const Main = () => {
     </React.StrictMode>
   )
 }
+
 root.render(<Main />);
