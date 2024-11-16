@@ -95,3 +95,7 @@
 .alert-button {
     color: rgb(75, 75, 75) !important;
 }
+
+#alert-input {
+    font-size: 1.1rem;;
+}

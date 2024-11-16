@@ -79,6 +79,7 @@ const FichaPaciente = () => {
                  inputs={[
                     {
                         placeholder: "Motivo",
+                        id: "alert-input"
                         
                     }
                  ]}
