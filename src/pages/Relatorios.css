@@ -3,7 +3,8 @@
 }
 
 #consultas-list {
-    height: 100vh;
+    height: fit-content;
+    min-height: 80vh;
     padding: 7px 0;
     background-color: white;
     box-shadow: inset -2px 2px 3px rgb(136, 136, 136);

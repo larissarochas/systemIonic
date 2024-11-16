@@ -29,16 +29,32 @@
 }
 
 .card {
+    opacity: 0;
     display: flex;
     overflow: hidden;
     user-select: none;
+    position: relative;
     height: fit-content;
     margin: 8px auto 0 auto;
-    transition: 0.13s ease-in-out;
     width: var(--card-width);
     border: var(--card-border);
+    animation: card-animation 1s;
+    animation-fill-mode: forwards;
+    transition: 0.13s ease-in-out;
     min-height: var(--card-height);
     border-radius: var(--card-border-radius);
+}
+
+@keyframes card-animation {
+    0% {
+        left: 100px;
+        opacity: 0;
+    }
+
+    100% {
+        left: 0px;
+        opacity: 1;
+    }
 }
 
 .card:active {

@@ -36,7 +36,9 @@ import Pendentes from './pages/Pendentes';
 import FichaPaciente from './pages/FichaPaciente';
 import Relatorios from './pages/Relatorios';
 
-setupIonicReact();
+setupIonicReact({
+  animated: false
+});
 
 const App: React.FC = () => (
   <IonApp>

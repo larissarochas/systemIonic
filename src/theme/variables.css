@@ -5,6 +5,10 @@ http://ionicframework.com/docs/theming/ */
     --custom-app-width: 600px;
 }
 
+body {
+    background-color: white;
+}
+
 .container {
     position: absolute;
     max-width: var(--custom-app-width);

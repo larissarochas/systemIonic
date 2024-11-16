@@ -5,12 +5,17 @@ interface Card {
     proced: string,
     date: string,
     type: string,
+    delay: number,
     handleClick: () => void
 }
 
-const UserCard = ({name, proced, date, type, handleClick}: Card) => {
+const UserCard = ({name, proced, date, type, delay, handleClick}: Card) => {
     return (
-        <div className={`card ${type}`} onClick={handleClick}>
+        <div 
+         className={`card ${type}`} 
+         onClick={handleClick} 
+         style={{animationDelay: `${delay / 10}s`}}
+        >
             <div className="card-color"></div>
             <div className="card-content">
                 <div className="card-content-top">

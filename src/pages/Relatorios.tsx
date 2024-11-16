@@ -17,8 +17,8 @@ const Relatorios = () => {
             <ContentContainer>
                 <SearchBox />
                 <div id="consultas-list">
-                    <UserCard name="José da Silva Ferreira" proced="Crosspilates" date="08/12/2024" type="accepted" handleClick={switchPage} />
-                    <UserCard name="Maria Talíta Pereira" proced="Microagulhamento" date="28/03/2025" type="denied" handleClick={switchPage} />
+                    <UserCard name="José da Silva Ferreira" proced="Crosspilates" date="08/12/2024" type="accepted" handleClick={switchPage} delay={0} />
+                    <UserCard name="Maria Talíta Pereira" proced="Microagulhamento" date="28/03/2025" type="denied" handleClick={switchPage} delay={1} />
                 </div>
             </ContentContainer>
         </IonPage>
