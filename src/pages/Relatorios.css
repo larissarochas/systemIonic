@@ -1,0 +1,9 @@
+#relatorios-page {
+    --ion-background-color: #DCDCDC;
+}
+
+#consultas-list {
+    height: 100vh;
+    padding: 7px 0;
+    background-color: white; 
+}

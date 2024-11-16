@@ -102,3 +102,15 @@
     color: var(--card-content-bottom-color);
     font-weight: bold;
 }
+
+.pending {
+    ---card-color: rgb(248, 226, 104);
+}
+
+.accepted {
+    --card-color: rgb(45, 168, 45);
+}
+
+.denied {
+    --card-color: rgb(241, 75, 75);
+}

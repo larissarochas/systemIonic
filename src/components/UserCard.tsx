@@ -1,22 +1,16 @@
-import { useIonRouter } from "@ionic/react";
 import "./UserCard.css";
 
 interface Card {
     name: string,
     proced: string,
-    date: string
+    date: string,
+    type: string,
+    handleClick: () => void
 }
 
-const UserCard = ({name, proced, date}: Card) => {
-    const router = useIonRouter();
-
-    const switchPage = () => {
-        // incompleto por enquanto
-        router.push("/ficha/2");
-    }
-
+const UserCard = ({name, proced, date, type, handleClick}: Card) => {
     return (
-        <div className="card" onClick={switchPage}>
+        <div className={`card ${type}`} onClick={handleClick}>
             <div className="card-color"></div>
             <div className="card-content">
                 <div className="card-content-top">

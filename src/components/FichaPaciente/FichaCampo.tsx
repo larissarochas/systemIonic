@@ -6,8 +6,6 @@ interface FichaCampo {
     style?: string
 }
 
-// Falta adicionar icones no campo de horário, e no data
-
 const FichaCampo = ({head, info, style="align-start"}: FichaCampo) => {
     return (
         <div id="field">
