@@ -8,6 +8,11 @@ import FichaButton from "../components/FichaPaciente/FichaButton";
 import { useContext, useState } from "react";
 import { AppContext } from "../main";
 
+const formatter = new Intl.NumberFormat("pt-br", {
+    style: "currency",
+    currency: "BRL"
+})
+
 const FichaPaciente = () => {
     const [alert, setAlert] = useState(false);
     const router = useIonRouter();
@@ -19,13 +24,19 @@ const FichaPaciente = () => {
             duration: 4,
             status: "accepted",
             msg: "Você acaba de aceitar um atendimento!"
-        })
+        });
         router.goBack();
     }
 
     const decline = (reason: {0: string}) => {
         reason[0] = reason[0] !== "" ? reason[0] : "Nenhum motivo informado.";
         console.log("Paciente recusado. Motivo: " + reason[0]);
+        notification?.setNotification({
+            duration: 4,
+            status: "denied",
+            msg: "Você acaba de recusar um atendimento!"
+        });
+        router.goBack();
     }
 
     const showAlert = () => {
@@ -60,7 +71,7 @@ const FichaPaciente = () => {
                     <FichaCampo head="Procedimento" info="Fisioterapia" />
                     <FichaCampo head="Forma de Pagamento" info="Cartão de Crédito" />
                     <div className="dados-servico-divided-container">
-                        <FichaCampo head="Valor" info="R$ 200,00" />
+                        <FichaCampo head="Valor" info={formatter.format(200)} />
                         <FichaCampo head="Pagamento" info="02/01/2024" style="align-middle" />
                     </div>
                 </div>

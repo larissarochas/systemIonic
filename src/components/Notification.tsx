@@ -1,5 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { AppContext } from "../main";
+
+import { FaRegCircleXmark } from "react-icons/fa6";
 import { ImCheckmark } from "react-icons/im";
 
 import "./Notification.css";
@@ -16,7 +18,8 @@ export interface NotificationContext {
 }
 
 const NotificationCodes = {
-    accepted: "SESSÃO AGENDADA"
+    accepted: "SESSÃO AGENDADA",
+    denied: "SESSÃO RECUSADA"
 }
 
 const Notification = () => {
@@ -59,8 +62,12 @@ const Notification = () => {
     
     if (showing && currentNotification) {
         return (
-            <div id="notification" ref={currentNotificationElement}>
-                <ImCheckmark id="notification-icon" />
+            <div id="notification" className={`notification-${currentNotification.status}`} ref={currentNotificationElement}>
+                {currentNotification.status && currentNotification.status == "accepted" ? (
+                    <ImCheckmark id="notification-icon" className="notification-icon-accepted" />
+                ) : (
+                    <FaRegCircleXmark id="notification-icon" className="notification-icon-denied" />
+                )}
                 <div id="notification-content">
                     <div id="notification-content-title">
                         <h3>{NotificationCodes[currentNotification.status]}</h3>
