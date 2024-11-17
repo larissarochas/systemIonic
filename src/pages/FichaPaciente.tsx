@@ -1,17 +1,26 @@
-import { IonAlert, IonPage } from "@ionic/react";
+import { IonAlert, IonPage, useIonRouter } from "@ionic/react";
 import Header from "../components/layout/Header";
 import ContentContainer from "../components/layout/ContentContainer";
 import FichaCampo from "../components/FichaPaciente/FichaCampo";
 
 import "./FichaPaciente.css";
 import FichaButton from "../components/FichaPaciente/FichaButton";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AppContext } from "../main";
 
 const FichaPaciente = () => {
     const [alert, setAlert] = useState(false);
+    const router = useIonRouter();
+    const notification = useContext(AppContext)?.notificationContext;
 
     const accept = () => {
         // aceitar o paciente
+        notification?.setNotification({
+            duration: 4,
+            status: "accepted",
+            msg: "Você acaba de aceitar um atendimento!"
+        })
+        router.goBack();
     }
 
     const decline = (reason: {0: string}) => {

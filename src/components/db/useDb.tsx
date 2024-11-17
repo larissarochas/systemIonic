@@ -4,6 +4,13 @@ import { SQLiteValues } from "jeep-sqlite";
 import { JeepSqlite } from "jeep-sqlite/dist/components/jeep-sqlite";
 import { useEffect, useRef, useState } from "react";
 
+export interface DBContext {
+    db: React.MutableRefObject<SQLiteDBConnection | undefined>,
+    SQLAction: (code: string) => Promise<void>;
+    SQLQuery: (code: string) => Promise<SQLiteValues | void>;
+    initialized: boolean;
+}
+
 const useDb = () => {
     const db = useRef<SQLiteDBConnection>();
     const [initialized, setInitialized] = useState(false);
