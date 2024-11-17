@@ -24,7 +24,8 @@ const Main = () => {
        value={{
         databaseContext: dbVariables,
         notificationContext: {notification, setNotification}
-       }}>
+       }}
+      >
         <App />
       </AppContext.Provider>
     </React.StrictMode>
