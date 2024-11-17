@@ -99,3 +99,7 @@
 .detalhes-informacoes-consulta-status-denied {
     background-color: var(--detalhes-informacoes-consulta-status-denied-background-color);
 }
+
+#detalhes-informacoes-consulta-observacoes {
+    font-size: var(--detalhes-informacoes-consulta-status-container-font-size);
+}

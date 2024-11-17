@@ -36,6 +36,10 @@ const Detalhes = () => {
                             Aceito
                         </p>
                     </div>
+                    <p id="detalhes-informacoes-consulta-observacoes">
+                        <strong>Observações: </strong>
+                        Nenhuma
+                    </p>
                 </div>
             </ContentContainer>
         </IonPage>
