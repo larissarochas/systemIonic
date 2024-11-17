@@ -38,7 +38,7 @@ const Detalhes = () => {
                     </div>
                     <p id="detalhes-informacoes-consulta-observacoes">
                         <strong>Observações: </strong>
-                        Nenhuma
+                        Nenhuma.
                     </p>
                 </div>
             </ContentContainer>
