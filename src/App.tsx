@@ -40,7 +40,7 @@ import Detalhes from './pages/Detalhes';
 
 
 setupIonicReact({
-  animated: false
+  animated: true
 });
 
 const App: React.FC = () => (
