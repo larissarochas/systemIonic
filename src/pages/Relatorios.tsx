@@ -1,4 +1,4 @@
-import { IonPage } from "@ionic/react";
+import { IonPage, useIonRouter } from "@ionic/react";
 import Header from "../components/layout/Header";
 import ContentContainer from "../components/layout/ContentContainer";
 import SearchBox from "../components/Relatorios/SearchBox";
@@ -7,8 +7,11 @@ import UserCard from "../components/UserCard";
 import "./Relatorios.css";
 
 const Relatorios = () => {
+    const router = useIonRouter();
+
     const switchPage = () => {
         // Abrir relatório do paciente
+        router.push("/detalhes/2");
     }
 
     return (

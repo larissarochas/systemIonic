@@ -25,6 +25,10 @@
 
     /* Ficha-Buttons */
     --ficha-buttons-height: 90px;
+
+    /* Alert-Button */
+    --alert-button-color: rgb(75, 75, 75);
+    --alert-input-font-size: 1.1rem;
 }
 
 .ficha-container {
@@ -93,9 +97,9 @@
 }
 
 .alert-button {
-    color: rgb(75, 75, 75) !important;
+    color: var(--alert-button-color) !important;
 }
 
 #alert-input {
-    font-size: 1.1rem;;
+    font-size: var(--alert-input-font-size);
 }

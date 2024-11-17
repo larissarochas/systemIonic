@@ -3,13 +3,13 @@ import { chevronBack } from "ionicons/icons";
 
 import "./Header.css";
 
-interface Header {
+interface HeaderProps {
     type?: string,
     text: string,
     goBack: boolean;
 }
 
-const Header = ({type="small-header", text, goBack}: Header) => {
+const Header = ({type="small-header", text, goBack}: HeaderProps) => {
     const router = useIonRouter();
 
     const returnPage = () => {
