@@ -28,6 +28,7 @@
 
 .ficha-button > p {
     margin: 0;
+    color: white;
     font-weight: var(--ficha-button-font-weight);
     text-shadow: -2px 2px 2px rgb(82, 82, 82);
 }

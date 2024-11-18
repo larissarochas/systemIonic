@@ -10,16 +10,13 @@
     --notification-animation-leave-duration: 0.3s;
 
     /* Notification-Icon */
-    --notification-icon-accepted-padding: 9px;
-    --notification-icon-accepted-font-size: 70px;
-
-    --notification-icon-denied-padding: 0px;
-    --notification-icon-denied-font-size: 70px;
+    --notification-icon-padding: 9px;
+    --notification-icon-font-size: 70px;
 
     /* Notification-Content */
     --notification-content-height: 80%;
     --notification-content-padding-right: 40px;
-    --notification-content-width: calc(100% - (var(--notification-icon-accepted-font-size) + var(--notification-icon-accepted-padding)) - var(--notification-content-padding-right));
+    --notification-content-width: calc(100% - (var(--notification-icon-font-size) + var(--notification-icon-padding)) - var(--notification-content-padding-right));
 
     /* Notification-Content-Title */
     --notification-content-title-font-weight: 600;
@@ -111,14 +108,12 @@
     background-color: rgb(230, 71, 71);
 }
 
-.notification-icon-denied {
+.notification-denied > .notification-icon {
     background-color: transparent;
-    font-size: var(--notification-icon-denied-font-size);
-    padding: var(--notification-icon-denied-padding);
 }
 
-.notification-icon-accepted {
+.notification-icon {
     background-color: #97C47A;
-    font-size: var(--notification-icon-accepted-font-size);
-    padding: var(--notification-icon-accepted-padding);
+    font-size: var(--notification-icon-font-size);
+    padding: var(--notification-icon-padding);
 }

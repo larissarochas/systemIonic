@@ -21,12 +21,12 @@ interface FichaProps {
     paciente_ddd: number,
     paciente_celular: string,
     paciente_cpf: string,
-    consulta_data: Date,
+    consulta_data: string,
     consulta_horario: string,
     procedimento_nome: string,
     forma_pagamento: string,
     consulta_valor: number,
-    consulta_pagamento: Date,
+    consulta_pagamento: string,
 }
 
 const FichaPaciente = () => {
@@ -79,14 +79,18 @@ const FichaPaciente = () => {
 
     const accept = async () => {
         if (db?.initialized) {
-            await db.SQLAction(`UPDATE consultas SET status = 1 WHERE id = ${id}`);
-
-            notification?.setNotification({
-                duration: 4,
-                status: "accepted",
-                msg: "Você acaba de aceitar um atendimento!"
-            });
-            router.goBack();
+            try {
+                await db.SQLAction(`UPDATE consultas SET status = 1 WHERE id = ${id}`);
+    
+                notification?.setNotification({
+                    duration: 4,
+                    status: "accepted",
+                    msg: "Você acaba de aceitar um atendimento!"
+                });
+                router.goBack();      
+            } catch (error) {
+                console.log("ERRO: " + error);
+            }
         }
     }
 
@@ -130,14 +134,14 @@ const FichaPaciente = () => {
                 </div>
                 <div className="ficha-container">
                     <div className="dados-servico-divided-container">
-                        <FichaCampo head="Data:" info={info?.consulta_data.toString() ?? ""} style="align-middle" />
+                        <FichaCampo head="Data:" info={info?.consulta_data ? new Date(info.consulta_data).toLocaleDateString("pt-BR") : ""} style="align-middle" />
                         <FichaCampo head="Horário:" info={info?.consulta_horario ?? ""} style="align-middle" />
                     </div>
                     <FichaCampo head="Procedimento" info={info?.procedimento_nome ?? ""} />
                     <FichaCampo head="Forma de Pagamento" info={info?.forma_pagamento ?? ""} />
                     <div className="dados-servico-divided-container">
                         <FichaCampo head="Valor" info={formatter.format(info?.consulta_valor ?? 0) ?? ""} />
-                        <FichaCampo head="Pagamento" info={info?.consulta_pagamento.toString() ?? ""} style="align-middle" />
+                        <FichaCampo head="Pagamento" info={info?.consulta_pagamento ? new Date(info.consulta_pagamento).toLocaleDateString("pt-BR") : ""} style="align-middle" />
                     </div>
                 </div>
                 <div id="ficha-buttons">

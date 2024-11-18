@@ -44,7 +44,7 @@ const Pendentes = () => {
                     <UserCard 
                      name={consulta.paciente_nome} 
                      proced={consulta.procedimento_nome} 
-                     date={consulta.consulta_data} 
+                     date={new Date(consulta.consulta_data).toLocaleDateString("pt-BR")} 
                      type="pending" 
                      handleClick={() => switchPage(consulta.consulta_id)}
                      delay={idx} 

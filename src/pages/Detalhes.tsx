@@ -94,7 +94,7 @@ const Detalhes = () => {
                 }
             })
         }
-    }, [db?.initialized, id]);
+    }, [db?.initialized]);
 
     return (
         <IonPage>

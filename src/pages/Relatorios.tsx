@@ -12,7 +12,7 @@ import { SQLiteValues } from "jeep-sqlite";
 interface ConsultaProps {
     paciente_nome: string,
     procedimento_nome: string,
-    consulta_data: Date,
+    consulta_data: string,
     consulta_status: number,
     consulta_id: number
 }
@@ -64,7 +64,7 @@ const Relatorios = () => {
                         <UserCard 
                          name={consulta.paciente_nome}
                          proced={consulta.procedimento_nome}
-                         date={consulta.consulta_data.toString()}
+                         date={new Date(consulta.consulta_data).toLocaleDateString("pt-BR")}
                          type={consulta.consulta_status === 1 ? "accepted" : "denied"} 
                          handleClick={() => switchPage(consulta.consulta_id)} 
                          delay={idx} 

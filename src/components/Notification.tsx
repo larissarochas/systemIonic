@@ -64,9 +64,9 @@ const Notification = () => {
         return (
             <div id="notification" className={`notification-${currentNotification.status}`} ref={currentNotificationElement}>
                 {currentNotification.status && currentNotification.status == "accepted" ? (
-                    <ImCheckmark id="notification-icon" className="notification-icon-accepted" />
+                    <ImCheckmark id="notification-icon" className="notification-icon" />
                 ) : (
-                    <FaRegCircleXmark id="notification-icon" className="notification-icon-denied" />
+                    <ImCheckmark id="notification-icon" className="notification-icon" />
                 )}
                 <div id="notification-content">
                     <div id="notification-content-title">
