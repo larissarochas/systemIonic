@@ -17,7 +17,7 @@ const Detalhes = () => {
                     <DetalheCampo title="CPF" text="030.233.754-43" />
                 </div>
                 <div id="detalhes-informacoes-consulta" className="detalhes-container">
-                    <h2>Informações Consulta</h2>
+                    <h2>Informações da Consulta</h2>
                     <div className="detalhes-informacoes-consulta-divided-middle">
                         <DetalheCampo title="Data" text="04/11/2024" />
                         <DetalheCampo title="Horário" text="11:00 AM" />
