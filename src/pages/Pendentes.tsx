@@ -2,29 +2,54 @@ import { IonPage, useIonRouter } from "@ionic/react";
 import Header from "../components/layout/Header";
 import ContentContainer from "../components/layout/ContentContainer";
 import UserCard from "../components/UserCard";
-import { useContext, useState } from "react";
-import Notification, { NotificationConfig } from "../components/Notification";
+import { useContext, useEffect, useState } from "react";
+import Notification from "../components/Notification";
 import { AppContext } from "../main";
+import { SQLiteValues } from "jeep-sqlite";
 
 const Pendentes = () => {
+    const db = useContext(AppContext)?.databaseContext;
+    const [consultas, setConsultas] = useState<SQLiteValues | void>();
+    const notificationContext = useContext(AppContext)?.notificationContext;
     const router = useIonRouter();
 
-    const switchPage = () => {
-        // incompleto por enquanto
-        router.push("/ficha/2");
+    function reload() {
+        db?.SQLQuery(`
+            SELECT pacientes.nome as paciente_nome,
+                    procedimentos.nome as procedimento_nome, consultas.data as consulta_data,
+                    consultas.id as consulta_id
+            FROM consultas
+            JOIN pacientes ON pacientes.id = consultas.paciente_id JOIN procedimentos ON procedimentos.id = consultas.procedimento_id
+            WHERE consultas.status = 3
+            `)
+        .then((data) => setConsultas(data));
     }
 
-    const elementos = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    useEffect(() => {
+        if (db?.initialized) {
+            reload();
+        }
+    }, [db?.initialized, notificationContext?.notification])
+
+    const switchPage = (id: number) => {
+        router.push(`/ficha/${id}`);
+    }
 
     return (
         <IonPage>
             <Header text="Pendentes" goBack={true} />
             <ContentContainer>
                 <Notification />
-                <UserCard name="Matheus Silveira" proced="Fisioterapia" date="22/02/2024" type="pending" handleClick={switchPage} delay={0} />
-                <UserCard name="Felipe Oscar Weverton" proced="Hidromassagem" date="22/02/2024" type="pending" handleClick={switchPage} delay={1} />
-                {elementos.map((item, idx) => (
-                    <UserCard name="Felipe Oscar Weverton" proced="Hidromassagem" date="22/02/2024" type="pending" handleClick={switchPage} delay={2 + idx} key={idx} />
+                {consultas?.values && consultas.values.map((consulta, idx) => (
+                    <UserCard 
+                     name={consulta.paciente_nome} 
+                     proced={consulta.procedimento_nome} 
+                     date={consulta.consulta_data} 
+                     type="pending" 
+                     handleClick={() => switchPage(consulta.consulta_id)}
+                     delay={idx} 
+                     key={consulta.consulta_id}
+                    />
                 ))}
             </ContentContainer>
         </IonPage>
