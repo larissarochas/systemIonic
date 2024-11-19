@@ -9,6 +9,7 @@ import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../main";
 import { SQLiteValues } from "jeep-sqlite";
 import FichaCampo from "../components/FichaPaciente/FichaCampo";
+import { data } from "../components/db/useDb";
 
 interface DetalhesProps {
     consulta_id: number;
@@ -19,11 +20,11 @@ interface DetalhesProps {
     paciente_cpf: string;
     procedimento_id: number;
     procedimento_nome: string;
-    consulta_data: Date;
+    consulta_data: string;
     consulta_horario: string;
     consulta_valor: number;
     consulta_forma_pagamento: number;
-    consulta_data_pagamento: Date;
+    consulta_data_pagamento: string;
     consulta_status: number;
     consulta_observacao: string | null;
     forma_pagamento_id: number;
@@ -79,11 +80,11 @@ const Detalhes = () => {
                         paciente_cpf: result.paciente_cpf,
                         procedimento_id: result.procedimento_id,
                         procedimento_nome: result.procedimento_nome,
-                        consulta_data: new Date(result.consulta_data),
+                        consulta_data: result.consulta_data,
                         consulta_horario: result.consulta_horario,
                         consulta_valor: result.consulta_valor,
                         consulta_forma_pagamento: result.consulta_forma_pagamento,
-                        consulta_data_pagamento: new Date(result.consulta_data_pagamento),
+                        consulta_data_pagamento: result.consulta_data_pagamento,
                         consulta_status: result.consulta_status,
                         consulta_id: result.consulta_id,
                         consulta_observacao: result.consulta_observacao,
@@ -104,7 +105,7 @@ const Detalhes = () => {
                 <div className="ficha-container">
                     <FichaCampo head="Procedimento:" info={info?.procedimento_nome ?? ""} />
                     <div className="dados-servico-divided-container">
-                        <FichaCampo head="Data:" info={info?.consulta_data.toLocaleDateString("pt-BR") ?? ""} style="align-middle" />
+                        <FichaCampo head="Data:" info={info?.consulta_data ? data(info.consulta_data) : ""} style="align-middle" />
                         <FichaCampo head="Horário:" info={info?.consulta_horario ?? ""} style="align-middle" />
                     </div>
                     <FichaCampo head="Paciente:" info={info?.paciente_nome ?? ""} />
@@ -112,7 +113,7 @@ const Detalhes = () => {
                     <FichaCampo head="Celular:" info={(info?.paciente_celular && info?.paciente_ddd) ? `(${info.paciente_ddd}) ${info.paciente_celular}` : ""} />
                     <FichaCampo head="Forma de Pagamento:" info={info?.forma_pagamento_tipo ?? ""} />
                     <div className="dados-servico-divided-container">
-                        <FichaCampo head="Pagamento:" info={info?.consulta_data_pagamento.toLocaleDateString("pt-BR") ?? ""} style="align-middle" />
+                        <FichaCampo head="Pagamento:" info={info?.consulta_data_pagamento ? data(info.consulta_data_pagamento) :  ""} style="align-middle" />
                         <FichaCampo head="Valor:" info={info?.consulta_valor.toLocaleString("pt-BR", {style: "currency", currency: "BRL"}) ?? ""} style="align-middle" />
                     </div>
                     <div id="detalhes-bottom-info">
@@ -133,49 +134,6 @@ const Detalhes = () => {
                         </p>
                     </div>
                 </div>
-
-                {/* Código Antigo */}
-
-                {/* <div id="detalhes-paciente-dados" className="detalhes-container">
-                    <h2>Paciente Dados</h2>
-                    <DetalheCampo title="Nome" text={info?.paciente_nome ?? ""} />
-                    <DetalheCampo title="Celular" text={info?.paciente_celular ?? ""} />
-                    <DetalheCampo title="CPF" text={info?.paciente_cpf ?? ""} />
-                </div>
-                <div id="detalhes-informacoes-consulta" className="detalhes-container">
-                    <h2>Informações da Consulta</h2>
-                    <div className="detalhes-informacoes-consulta-divided-middle">
-                        <DetalheCampo title="Data" text={info?.consulta_data?.toLocaleDateString("pt-BR") ?? ""} />
-                        <DetalheCampo title="Horário" text={info?.consulta_horario ?? ""} />
-                    </div>
-                    <DetalheCampo title="Procedimento" text={info?.procedimento_nome ?? ""} />
-                    <DetalheCampo title="Forma de Pagamento" text={info?.forma_pagamento_tipo ?? ""} />
-                    <div className="detalhes-informacoes-consulta-divided-middle">
-                        <DetalheCampo 
-                            title="Valor" 
-                            text={info?.consulta_valor?.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) ?? ""} 
-                        />
-                        <DetalheCampo 
-                            title="Pagamento" 
-                            text={info?.consulta_data_pagamento?.toLocaleDateString("pt-BR") ?? ""} 
-                        />
-                    </div>
-                    <div id="detalhes-informacoes-consulta-status-container">
-                        <p id="detalhes-informacoes-consulta-status-left">
-                            <strong>Status: </strong>
-                        </p>
-                        <p
-                            id="detalhes-informacoes-consulta-status-right"
-                            className={info?.consulta_status === 1 ? "detalhes-informacoes-consulta-status-accepted" : "detalhes-informacoes-consulta-status-denied"}
-                        >
-                            {info?.status_nome ?? ""}
-                        </p>
-                    </div>
-                    <p id="detalhes-informacoes-consulta-observacoes">
-                        <strong>Observações: </strong>
-                        {info?.consulta_observacao ?? "Nenhuma."}
-                    </p>
-                </div> */}
             </ContentContainer>
         </IonPage>
     );

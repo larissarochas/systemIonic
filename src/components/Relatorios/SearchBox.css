@@ -39,9 +39,9 @@
     --search-box-filter-p-font-size: 1.1rem;
 
     /* Search-Box-Filter */
-    --search-box-filter-font-weight: 400;
+    --search-box-filter-font-weight: 500;
     --search-box-filter-font-size: 1.30rem;
-    --search-box-filter-color: rgb(219, 122, 42);
+    --search-box-filter-color: rgb(0, 0, 0);
 }
 
 #search-box {

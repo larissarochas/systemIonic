@@ -11,6 +11,12 @@ export interface DBContext {
     initialized: boolean;
 }
 
+export function data(str: string) {
+    const splt = str.split("-");
+
+    return `${splt[2]}/${splt[1]}/${splt[0]}`;
+}
+
 const useDb = () => {
     const db = useRef<SQLiteDBConnection>();
     const [initialized, setInitialized] = useState(false);
@@ -126,7 +132,8 @@ const useDb = () => {
                 observacao varchar(255) default null,
                 foreign key (paciente_id) references pacientes(id),
                 foreign key (procedimento_id) references procedimentos(id),
-                foreign key (forma_pagamento) references formas_pagamento(id)
+                foreign key (forma_pagamento) references formas_pagamento(id),
+                foreign key (status) references status(id)
             )`)
         }
     }
@@ -189,13 +196,14 @@ const useDb = () => {
             await SQLAction(`
                 INSERT OR IGNORE INTO consultas (id, paciente_id, procedimento_id, data, horario, forma_pagamento, data_pagamento, valor, status, observacao) VALUES
                 (1, 1, 2, "2024-11-20", "10:30 AM", 1, "2024-12-08", 2890, 3, null),
-                (2, 2, 4, "2024-11-21", "15:00 AM", 2, "2024-12-09", 500, 1, null),
+                (2, 2, 4, "2024-11-21", "10:00 AM", 2, "2024-12-09", 500, 1, null),
                 (3, 3, 3, "2024-11-22", "09:00 PM", 3, "2024-12-10", 5400, 1, null),
                 (4, 4, 5, "2024-11-23", "11:00 AM", 4, "2024-12-11", 1200, 2, "Foi Recusado"),
-                (5, 5, 1, "2024-11-24", "14:30 PM", 1, "2024-12-12", 3600, 3, null),
+                (5, 5, 1, "2024-11-24", "08:30 PM", 1, "2024-12-12", 3600, 3, null),
                 (6, 1, 6, "2024-11-25", "08:00 AM", 2, "2024-12-13", 3350, 1, null),
-                (7, 3, 7, "2024-11-26", "13:00 PM", 3, "2024-12-14", 1700, 3, null),
-                (8, 5, 8, "2024-11-27", "16:00 AM", 4, "2024-12-15", 200, 2, "Foi Recusado");
+                (7, 3, 7, "2024-11-26", "13:00 PM", 2, "2024-12-14", 1300, 3, null),
+                (8, 3, 6, "2025-11-26", "09:00 PM", 3, "2024-12-13", 1700, 3, null),
+                (9, 5, 8, "2024-11-27", "16:00 AM", 4, "2024-12-15", 200, 2, "Foi Recusado");
             `);
             
         }

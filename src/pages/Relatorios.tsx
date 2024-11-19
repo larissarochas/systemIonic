@@ -8,6 +8,7 @@ import "./Relatorios.css";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../main";
 import { SQLiteValues } from "jeep-sqlite";
+import { data } from "../components/db/useDb";
 
 interface ConsultaProps {
     paciente_nome: string,
@@ -33,7 +34,7 @@ const Relatorios = () => {
                         FROM consultas
                         JOIN pacientes on pacientes.id = consultas.paciente_id
                         JOIN procedimentos on procedimentos.id = consultas.procedimento_id
-                        WHERE consultas.status != 3 GROUP BY pacientes.nome
+                        WHERE consultas.status != 3 ORDER BY pacientes.nome
                 `)
             .then((data: SQLiteValues | void) => {
                 if (data?.values) {
@@ -75,7 +76,7 @@ const Relatorios = () => {
                         <UserCard 
                          name={consulta.paciente_nome}
                          proced={consulta.procedimento_nome}
-                         date={new Date(consulta.consulta_data).toLocaleDateString("pt-BR")}
+                         date={data(consulta.consulta_data)}
                          type={consulta.consulta_status === 1 ? "accepted" : "denied"} 
                          handleClick={() => switchPage(consulta.consulta_id)} 
                          delay={idx} 

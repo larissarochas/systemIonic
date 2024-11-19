@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import Notification from "../components/Notification";
 import { AppContext } from "../main";
 import { SQLiteValues } from "jeep-sqlite";
+import { data } from "../components/db/useDb";
 
 const Pendentes = () => {
     const db = useContext(AppContext)?.databaseContext;
@@ -16,11 +17,12 @@ const Pendentes = () => {
     function reload() {
         db?.SQLQuery(`
             SELECT pacientes.nome as paciente_nome,
-                    procedimentos.nome as procedimento_nome, consultas.data as consulta_data,
-                    consultas.id as consulta_id
+                   procedimentos.nome as procedimento_nome,
+                   consultas.data as consulta_data,
+                   consultas.id as consulta_id
             FROM consultas
             JOIN pacientes ON pacientes.id = consultas.paciente_id JOIN procedimentos ON procedimentos.id = consultas.procedimento_id
-            WHERE consultas.status = 3 GROUP BY pacientes.nome
+            WHERE consultas.status = 3 ORDER BY pacientes.nome
             `)
         .then((data) => setConsultas(data));
     }
@@ -44,7 +46,7 @@ const Pendentes = () => {
                     <UserCard 
                      name={consulta.paciente_nome} 
                      proced={consulta.procedimento_nome} 
-                     date={new Date(consulta.consulta_data).toLocaleDateString("pt-BR")} 
+                     date={data(consulta.consulta_data)} 
                      type="pending" 
                      handleClick={() => switchPage(consulta.consulta_id)}
                      delay={idx} 

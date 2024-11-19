@@ -9,6 +9,7 @@ import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../main";
 import { useParams } from "react-router";
 import { SQLiteValues } from "jeep-sqlite";
+import { data } from "../components/db/useDb";
 
 const formatter = new Intl.NumberFormat("pt-br", {
     style: "currency",
@@ -134,14 +135,14 @@ const FichaPaciente = () => {
                 </div>
                 <div className="ficha-container">
                     <div className="dados-servico-divided-container">
-                        <FichaCampo head="Data:" info={info?.consulta_data ? new Date(info.consulta_data).toLocaleDateString("pt-BR") : ""} style="align-middle" />
+                        <FichaCampo head="Data:" info={info?.consulta_data ? data(info.consulta_data) : ""} style="align-middle" />
                         <FichaCampo head="Horário:" info={info?.consulta_horario ?? ""} style="align-middle" />
                     </div>
                     <FichaCampo head="Procedimento" info={info?.procedimento_nome ?? ""} />
                     <FichaCampo head="Forma de Pagamento" info={info?.forma_pagamento ?? ""} />
                     <div className="dados-servico-divided-container">
                         <FichaCampo head="Valor" info={formatter.format(info?.consulta_valor ?? 0) ?? ""} />
-                        <FichaCampo head="Pagamento" info={info?.consulta_pagamento ? new Date(info.consulta_pagamento).toLocaleDateString("pt-BR") : ""} style="align-middle" />
+                        <FichaCampo head="Pagamento" info={info?.consulta_pagamento ? data(info.consulta_pagamento) : ""} style="align-middle" />
                     </div>
                 </div>
                 <div id="ficha-buttons">
