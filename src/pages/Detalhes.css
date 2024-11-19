@@ -4,9 +4,9 @@
     --detalhes-paciente-dados-margin-top: 13px;
     --detalhes-paciente-dados-border-radius: 20px;
     --detalhes-paciente-dados-margin-bottom: 21px;
-    --detalhes-paciente-dados-background-color: #f1eeee;
+    --detalhes-paciente-dados-background-color: #dcfdb2;
     --detalhes-paciente-dados-padding-left-and-right: 14px;
-    --detalhes-paciente-dados-box-shadow: 0px 0px 8px rgb(0, 0, 0);
+    --detalhes-paciente-dados-box-shadow: -2px 2px 8px rgb(66, 66, 66);
     --detalhes-paciente-dados-padding: 10px var(--detalhes-paciente-dados-padding-left-and-right);
 
     /* Containers */
@@ -38,7 +38,7 @@
     
 }
 
-#detalhes-paciente-dados {
+/* #detalhes-paciente-dados {
     margin: 0 auto;
     width: var(--detalhes-paciente-dados-width);
     padding: var(--detalhes-paciente-dados-padding);
@@ -52,13 +52,13 @@
 .detalhes-container h2 {
     text-align: center;
     margin-bottom: var(--detalhes-container-h2-margin-bottom);
-}
+}*/
 
-.detalhes-container :where(h2, p) {
+.ficha-container :where(h2, p) {
     margin: 0;
     padding: 0;
 }
-
+/*
 #detalhes-informacoes-consulta {
     padding: 0 calc((100% - var(--detalhes-paciente-dados-width)) / 8 + 14px);
 }
@@ -78,6 +78,11 @@
 
 .detalhes-informacoes-consulta-divided-middle :nth-child(2) {
     flex: var(--detalhes-informacoes-consulta-divided-middle-right-size);
+} */
+
+#detalhes-bottom-info {
+    position: absolute;
+    bottom: 15px;
 }
 
 #detalhes-informacoes-consulta-status-container {

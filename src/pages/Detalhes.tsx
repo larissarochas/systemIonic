@@ -8,6 +8,7 @@ import { useParams } from "react-router";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../main";
 import { SQLiteValues } from "jeep-sqlite";
+import FichaCampo from "../components/FichaPaciente/FichaCampo";
 
 interface DetalhesProps {
     consulta_id: number;
@@ -100,7 +101,42 @@ const Detalhes = () => {
         <IonPage>
             <Header text="Detalhes" goBack={true} />
             <ContentContainer>
-                <div id="detalhes-paciente-dados" className="detalhes-container">
+                <div className="ficha-container">
+                    <FichaCampo head="Procedimento:" info={info?.procedimento_nome ?? ""} />
+                    <div className="dados-servico-divided-container">
+                        <FichaCampo head="Data:" info={info?.consulta_data.toLocaleDateString("pt-BR") ?? ""} style="align-middle" />
+                        <FichaCampo head="Horário:" info={info?.consulta_horario ?? ""} style="align-middle" />
+                    </div>
+                    <FichaCampo head="Paciente:" info={info?.paciente_nome ?? ""} />
+                    <FichaCampo head="CPF:" info={info?.paciente_cpf ?? ""} />
+                    <FichaCampo head="Celular:" info={(info?.paciente_celular && info?.paciente_ddd) ? `(${info.paciente_ddd}) ${info.paciente_celular}` : ""} />
+                    <FichaCampo head="Forma de Pagamento:" info={info?.forma_pagamento_tipo ?? ""} />
+                    <div className="dados-servico-divided-container">
+                        <FichaCampo head="Pagamento:" info={info?.consulta_data_pagamento.toLocaleDateString("pt-BR") ?? ""} style="align-middle" />
+                        <FichaCampo head="Valor:" info={info?.consulta_valor.toLocaleString("pt-BR", {style: "currency", currency: "BRL"}) ?? ""} style="align-middle" />
+                    </div>
+                    <div id="detalhes-bottom-info">
+                        <div id="detalhes-informacoes-consulta-status-container">
+                            <p id="detalhes-informacoes-consulta-status-left">
+                                <strong>Status: </strong>
+                            </p>
+                            <p
+                                id="detalhes-informacoes-consulta-status-right"
+                                className={info?.consulta_status === 1 ? "detalhes-informacoes-consulta-status-accepted" : "detalhes-informacoes-consulta-status-denied"}
+                            >
+                                {info?.status_nome ?? ""}
+                            </p>
+                        </div>
+                        <p id="detalhes-informacoes-consulta-observacoes">
+                            <strong>Observações: </strong>
+                            {info?.consulta_observacao ?? "Nenhuma."}
+                        </p>
+                    </div>
+                </div>
+
+                {/* Código Antigo */}
+
+                {/* <div id="detalhes-paciente-dados" className="detalhes-container">
                     <h2>Paciente Dados</h2>
                     <DetalheCampo title="Nome" text={info?.paciente_nome ?? ""} />
                     <DetalheCampo title="Celular" text={info?.paciente_celular ?? ""} />
@@ -139,7 +175,7 @@ const Detalhes = () => {
                         <strong>Observações: </strong>
                         {info?.consulta_observacao ?? "Nenhuma."}
                     </p>
-                </div>
+                </div> */}
             </ContentContainer>
         </IonPage>
     );
