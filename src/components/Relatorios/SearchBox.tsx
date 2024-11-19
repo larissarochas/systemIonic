@@ -2,9 +2,14 @@ import { GrSearch } from "react-icons/gr";
 import { FaFilter } from "react-icons/fa";
 
 import "./SearchBox.css";
+import { useState } from "react";
 
-const SearchBox = () => {
-    // Por enquanto sem funções
+const SearchBox = ({handleFilter}: {handleFilter: (text: string) => void}) => {
+    const [searchText, setSearchText] = useState<string>("");
+
+    const filter = () => {
+        handleFilter(searchText);
+    }
 
     return (
         <div id="search-box">
@@ -14,8 +19,9 @@ const SearchBox = () => {
                  name="search-bar" 
                  id="search-bar" 
                  placeholder="Pesquisar..."
+                 onInput={(text) => setSearchText(text.currentTarget.value)}
                 />
-                <button id="search-submit">
+                <button onClick={filter} id="search-submit">
                     <GrSearch id="search-submit-icon" />
                 </button>
             </div>

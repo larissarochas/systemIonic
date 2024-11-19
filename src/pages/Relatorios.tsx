@@ -20,6 +20,7 @@ interface ConsultaProps {
 const Relatorios = () => {
     const db = useContext(AppContext)?.databaseContext;
     const [consultas, setConsultas] = useState<ConsultaProps[]>([]);
+    const [filtered, setFiltered] = useState<ConsultaProps[]>([]);
     const router = useIonRouter();
 
     useEffect(() => {
@@ -32,7 +33,7 @@ const Relatorios = () => {
                         FROM consultas
                         JOIN pacientes on pacientes.id = consultas.paciente_id
                         JOIN procedimentos on procedimentos.id = consultas.procedimento_id
-                        WHERE consultas.status != 3 
+                        WHERE consultas.status != 3 GROUP BY pacientes.nome
                 `)
             .then((data: SQLiteValues | void) => {
                 if (data?.values) {
@@ -44,23 +45,33 @@ const Relatorios = () => {
                         procedimento_nome: v.procedimento_nome
                     }));
 
-                    setConsultas(results)
+                    setConsultas(results);
                 }
             })
         }
     }, [db?.initialized])
 
+    useEffect(() => {
+        filter("");
+    }, [consultas])
+
     const switchPage = (id: number) => {
         router.push(`/detalhes/${id}`);
+    }
+
+    const filter = (text: string) => {
+        if (consultas.length > 0) {
+            setFiltered(consultas.filter(consulta => consulta.paciente_nome.toLowerCase().includes(text.toLowerCase())));
+        }
     }
 
     return (
         <IonPage id="relatorios-page">
             <Header text="Relatórios" goBack={true} />
             <ContentContainer>
-                <SearchBox />
+                <SearchBox handleFilter={filter} />
                 <div id="consultas-list">
-                    {consultas.length > 0 && consultas.map((consulta, idx) => (
+                    {filtered.length > 0 && filtered.map((consulta, idx) => (
                         <UserCard 
                          name={consulta.paciente_nome}
                          proced={consulta.procedimento_nome}

@@ -20,7 +20,7 @@ const Pendentes = () => {
                     consultas.id as consulta_id
             FROM consultas
             JOIN pacientes ON pacientes.id = consultas.paciente_id JOIN procedimentos ON procedimentos.id = consultas.procedimento_id
-            WHERE consultas.status = 3
+            WHERE consultas.status = 3 GROUP BY pacientes.nome
             `)
         .then((data) => setConsultas(data));
     }
