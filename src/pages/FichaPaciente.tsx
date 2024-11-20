@@ -141,7 +141,7 @@ const FichaPaciente = () => {
                     <FichaCampo head="Procedimento" info={info?.procedimento_nome ?? ""} />
                     <FichaCampo head="Forma de Pagamento" info={info?.forma_pagamento ?? ""} />
                     <div className="dados-servico-divided-container">
-                        <FichaCampo head="Valor" info={formatter.format(info?.consulta_valor ?? 0) ?? ""} />
+                        <FichaCampo head="Valor" info={formatter.format(info?.consulta_valor ?? 0) ?? ""} style="align-middle" />
                         <FichaCampo head="Pagamento" info={info?.consulta_pagamento ? data(info.consulta_pagamento) : ""} style="align-middle" />
                     </div>
                 </div>
