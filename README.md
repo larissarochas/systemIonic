@@ -14,8 +14,16 @@
 ### OBJETIVOS GERAIS
 
 ## 💻 Pré-Requisitos
+Antes de começar, verifique se sua máquina atende aos seguintes requisitos:
+
+- Ter uma máquina `Windows / Linux / Mac`.
+- Possuir a versão mais recente do <a href="https://nodejs.org/pt">Node JS</a> instalada
+- Versão mais recente do <a href="https://www.oracle.com/java/technologies/downloads/#jdk23-windows">Java JDK</a>
+- Ter instalado o Ionic e SQLite
+  
 
 ## 🚀 Instalando o Sistema
+
 
 ## 🤝 Colaboradores
 
