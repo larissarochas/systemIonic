@@ -112,6 +112,11 @@
     background-color: transparent;
 }
 
+.notification-warning {
+    background-color: white;
+    border: 3px solid rgb(150, 150, 150);
+}
+
 .notification-icon {
     background-color: #97C47A;
     font-size: var(--notification-icon-font-size);

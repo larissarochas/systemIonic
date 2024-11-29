@@ -2,6 +2,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { AppContext } from "../main";
 
 import { FaRegCircleXmark } from "react-icons/fa6";
+import { AiOutlineFileExclamation } from "react-icons/ai";
 import { ImCheckmark } from "react-icons/im";
 
 import "./Notification.css";
@@ -19,7 +20,8 @@ export interface NotificationContext {
 
 const NotificationCodes = {
     accepted: "SESSÃO AGENDADA",
-    denied: "SESSÃO RECUSADA"
+    denied: "SESSÃO RECUSADA",
+    warning: "AVISO"
 }
 
 const Notification = () => {
@@ -63,10 +65,14 @@ const Notification = () => {
     if (showing && currentNotification) {
         return (
             <div id="notification" className={`notification-${currentNotification.status}`} ref={currentNotificationElement}>
-                {currentNotification.status && currentNotification.status == "accepted" ? (
+                {currentNotification.status && (
+                    currentNotification.status === "accepted" || currentNotification.status === "denied" ) ? (
                     <ImCheckmark id="notification-icon" className="notification-icon" />
                 ) : (
-                    <ImCheckmark id="notification-icon" className="notification-icon" />
+                    <AiOutlineFileExclamation
+                     id="notification-icon" 
+                     className="notification-icon" 
+                    />
                 )}
                 <div id="notification-content">
                     <div id="notification-content-title">
