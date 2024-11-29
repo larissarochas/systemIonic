@@ -21,7 +21,7 @@ export interface NotificationContext {
 const NotificationCodes = {
     accepted: "SESSÃO AGENDADA",
     denied: "SESSÃO RECUSADA",
-    warning: "AVISO"
+    warning: "AVISO!"
 }
 
 const Notification = () => {

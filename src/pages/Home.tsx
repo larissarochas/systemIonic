@@ -18,10 +18,12 @@ const Home: React.FC = () => {
       WHERE status = 3  
     `);
 
-    if (res) {
+    if (res && res.values) {
+      const multiple = res.values.length > 1 ? "s" : "";
+
       notification?.setNotification({
         duration: 3,
-        msg: `${res.values?.length} Consultas Pendentes`,
+        msg: `${res.values?.length} Consulta${multiple} Pendente${multiple}`,
         status: "warning"
       })
     }
